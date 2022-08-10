@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Forever Forests</title>
+  <title>nefashot</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -25,7 +25,8 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
 
   <!-- =======================================================
   * Template Name: Green - v4.7.0
@@ -40,48 +41,60 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="/">Souls -</a><a href="/feedbackhebrew"> נפשות -</a><a> ارواح</a></h1>
+      <h1 class="logo me-auto"><a href="index.html">Souls - נפשות - ارواح</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
-       <a href="/">Home</a>
-       <a href="/#about">About</a>
-       <a href="/team">The Team</a>   
-       <a href="/feedback">Apply for the program</a> 
-       <a href="/form">FeedBack</a> 
-       <a href="https://paypal.me/NefaShot?country.x=IL&locale.x=en_US">Donate</a> 
+       <a href="#about">About</a>
+       <a href="/about">Children and Youth Environment and Donations</a>   
       <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-  <div class="center">
-    <h1> Apply for the program </h1>
-    <form method = "POST" action = "/feedback" >
+  <div>
+    
+         <div class="center">
+
+    <form method="POST" action="/addevent">
+        <!-- Heading -->
         <div class = "txt_field">
-            <input type = "text"   name="full_name"required>
+        <br>
+        <br>
+        <p style="font-size: 36px;">Add an event</p>
+        <div class = "txt_field">
+            <input type = "text" name="Title" id="title1" required>
             <span></span>
-            <label class = "lour">Full Name</label>
+            <label class = "lour">Title</label>
         </div>
         <div class = "txt_field">
-            <input type = "text"   name="email"required>
-            
-            <label class = "zain">Email</label>
+            <input   type="date"  name="Date" id="write1" required>
+            <span></span>
+            <label class = "lour">Date</label>
         </div>
         <div class = "txt_field">
-            <input type = "text" name="Phone_Number" required>
-            
-            <label class = "zain">Phone Number</label>
+            <input  type="time"  name="Time"  required>
+            <span></span>
+            <label class = "lour">Time</label>
         </div>
         <div class = "txt_field">
-            <input type = "text"   name="city"required>
-            
-            <label class = "zain">City</label>
+            <input  type="text"  name="Location"  required>
+            <span></span>
+            <label class = "lour">Location</label>
         </div>
-        <input type = "submit" id = "op "value = "Done">
-        
+        <div class = "txt_field">
+            <input  type="text"  name="Details"  required>
+            <span></span>
+            <label class = "lour">Details</label>
+        </div>
+       
+        <div> 
+             <input type = "submit" id = "op "value = "Done">
+        </div>
+        <br>
+    </div>
     </form>
-</div>
+
 </body>
 </html>

@@ -24,11 +24,93 @@ db = firebase.database()
 def index():
 	return render_template('index.html')
 
+@app.route('/addevent')
+def addevent():
+	return render_template('addevent.html')
+
+
+@app.route('/arabic')
+def arabic():
+	return render_template('indexarabic.html')
+
 @app.route('/feedback', methods = ['GET', 'POST'])
+def applo():
+	if request.method == 'POST':
+		apple ={"Full Name":request.form['full_name'],"Email":request.form['email'],"Phone_Number":request.form['Phone_Number'],"city":request.form['city']}
+		db.child("apple").push(apple)
+		return render_template('feedback.html')
+	return render_template('feedback.html')
+
+
+
+@app.route('/add_event', methods=['GET','POST'])
+def add_event():
+  error=""
+  if request.method=='POST':
+    print(request.form['Title'])
+    event={"Title":request.form['Title'],"Date":request.form['Date'],"Time":request.form['Time'], "Location":request.form['Location'],"Details":request.form['Details']}
+    db.child("event").push(event)
+    return redirect('calender4admin')
+  return render_template("addevent.html")
+
+
+@app.route('/calender', methods=['GET','POST'])
+def calender():
+  events=db.child("event").get().val()
+  error=""
+  if request.method =='POST':
+    admin={"Username":request.form['username'], "Password":request.form['password']}
+    try:
+      username=request.form['username']
+      password=request.form['password']
+      if username=="adminentrance":
+        if password=="123456":
+          return redirect('calender4admin')
+    except:
+      error="authentication failed"
+  return render_template("cala.html", events=events, count=0)
+
+
+@app.route('/calender4admin', methods=['GET','POST'])
+def calender4admin():
+  events=db.child("event").get().val()
+  return render_template("calaadmin.html", events=events, count=0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@app.route('/feedbackhebrew')
+def feedback2():
+	return render_template('feedback2.html')
+
+@app.route('/form2', methods = ['GET', 'POST'])
+def lol():
+	return render_template('form2.html')
+
+
+@app.route('/form', methods = ['GET', 'POST'])
 def feedback():
 	if request.method == 'POST':
-		return render_template("feedback.html")
-	return render_template('feedback.html')
+		text= request.form['text']
+		feedback={"text":request.form['text']}
+		db.child("feedback").push(feedback)
+		return render_template('form.html')
+	return render_template('form.html')
 
 
 @app.route('/team')
